@@ -1,3 +1,8 @@
+// TRABALHO 1, parte1, POO
+// ANDRE SILVARES NEMER
+// GUSTAVO BREDA SARTI
+
+
 import java.util.Scanner;
 import java.util.HashMap;
 import java.util.Map;
