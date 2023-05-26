@@ -1,9 +1,10 @@
 import java.time.LocalDate;
 import java.util.Map;
 import java.util.HashMap;
+import java.io.Serializable;
 
-public class Prova {
-
+public class Prova implements Serializable {
+  
   private Disciplina disciplinaDaProva;
   private String codigoDaProva;
   private String nomeDaProva;
