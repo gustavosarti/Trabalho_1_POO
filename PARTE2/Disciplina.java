@@ -1,7 +1,9 @@
 import java.util.Map;
 import java.util.HashMap;
 
-public class Disciplina {
+import java.io.Serializable;
+
+public class Disciplina implements Serializable {
 
   private String codigoDaDisciplina;
   private String nomeDaDisciplina;
