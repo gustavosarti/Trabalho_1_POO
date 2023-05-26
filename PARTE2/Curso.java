@@ -1,7 +1,8 @@
 import java.util.Map;
 import java.util.HashMap;
+import java.io.Serializable;
 
-public class Curso{
+public class Curso implements Serializable {
 
   private String codigoDoCurso;
   private String nomeDoCurso;
