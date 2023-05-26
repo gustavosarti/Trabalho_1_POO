@@ -1,6 +1,8 @@
 import java.util.Map;
 import java.util.HashMap;
-public class Aluno{
+import java.io.Serializable;
+
+public class Aluno implements Serializable {
 
   private Integer matriculaDoAluno;
   private String nomeDoAluno;
