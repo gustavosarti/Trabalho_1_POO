@@ -4,6 +4,15 @@ import java.util.HashMap;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
+//serialização
+//============================================
+import java.io.FileInputStream;
+import java.io.ObjectInputStream;
+
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
+//============================================
+
 public class Funcao {
 
   // Scanner para leitura de entrada do usuário
@@ -516,4 +525,58 @@ public static void exibirEstatisticasPorAvaliacao() {
         
     
     }
+
+
+// CASE 10 ==============================================================================
+// SERIALIZAÇÃO "carregar"
+
+@SuppressWarnings("unchecked")
+public static void carregar() {
+    try {
+        FileInputStream fileIn = new FileInputStream("dados.dat");
+        ObjectInputStream objectIn = new ObjectInputStream(fileIn);
+
+        // Carregar os HashMaps dos dados do arquivo
+        mapaDeCursos = (Map<String, Curso>) objectIn.readObject();
+        mapaDeDisciplinas = (Map<String, Disciplina>) objectIn.readObject();
+        mapaDeAlunos = (Map<Integer, Aluno>) objectIn.readObject();
+        mapaDeProvas = (Map<String, Prova>) objectIn.readObject();
+        mapaDeTrabalhos = (Map<String, Trabalho>) objectIn.readObject();
+
+        objectIn.close();
+        fileIn.close();
+
+        System.out.println("Dados carregados com sucesso.");
+    } catch (Exception e) {
+        System.out.println("Erro ao carregar os dados: " + e.getMessage());
+    }
 }
+
+
+
+// CASE 11 ==============================================================================
+// SERIALIZAÇÃO "salvar"
+  
+@SuppressWarnings("unchecked")
+public static void salvar() {
+    try {
+        FileOutputStream fileOut = new FileOutputStream("dados.dat");
+        ObjectOutputStream objectOut = new ObjectOutputStream(fileOut);
+
+        // Salvar os HashMaps dos dados no arquivo
+        objectOut.writeObject(mapaDeCursos);
+        objectOut.writeObject(mapaDeDisciplinas);
+        objectOut.writeObject(mapaDeAlunos);
+        objectOut.writeObject(mapaDeProvas);
+        objectOut.writeObject(mapaDeTrabalhos);
+
+        objectOut.close();
+        fileOut.close();
+
+        System.out.println("Dados salvos com sucesso.");
+    } catch (Exception e) {
+        System.out.println("Erro ao salvar os dados: " + e.getMessage());
+    }
+}
+
+} // fim do codigo
