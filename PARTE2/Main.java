@@ -2,15 +2,15 @@ import java.util.Scanner;
 
 public class Main {
 
-  // Scanner para leitura de entrada do usuário
+    // Scanner para leitura de entrada do usuário
     private static Scanner sc = new Scanner(System.in);
-  
+
     public static void main(String[] args) {
         boolean continuar = true;
 
         while (continuar) {
             System.out.println("=== MENU ===");
-            System.out.println("1 - Cadastrar curso ou tipo de pos graduacao");
+            System.out.println("1 - Cadastrar curso ou tipo de pós-graduação");
             System.out.println("2 - Cadastrar disciplina");
             System.out.println("3 - Cadastrar prova, trabalho ou prova final");
             System.out.println("4 - Cadastrar aluno");
@@ -19,10 +19,12 @@ public class Main {
             System.out.println("7 - Registrar curso em disciplina");
             System.out.println("8 - Imprimir dados");
             System.out.println("9 - Relatórios");
-            System.out.println("10 - Sair do programa");
+            System.out.println("10 - Carregar");
+            System.out.println("11 - Salvar");
+            System.out.println("12 - Sair do programa");
             System.out.print("Digite uma opção: ");
             int opcao = sc.nextInt();
-            
+
             switch (opcao) {
                 case 1:
                     Funcao.cadastrarCurso();
@@ -52,6 +54,12 @@ public class Main {
                     Funcao.exibirRelatorios();
                     break;
                 case 10:
+                    Funcao.carregar();
+                    break;
+                case 11:
+                    Funcao.salvar();
+                    break;
+                case 12:
                     System.out.println("Encerrando o programa...");
                     continuar = false;
                     break;
@@ -60,7 +68,6 @@ public class Main {
                     break;
             }
         }
-      sc.close();
+        sc.close();
     }
-
 }
